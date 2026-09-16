@@ -1,0 +1,27 @@
+# Operations Intelligence Requirements
+
+| Field | Value |
+|---|---|
+| Document ID | REQ-004 |
+| Status | Draft |
+| Date | 2026-09-16 |
+| Source | [Solution Overview](../../solution-overview-15thSept.md) |
+
+| ID | Requirement | Verification | Observable evidence | Design |
+| --- | --- | --- | --- | --- |
+| FR-009 | A governed threshold breach MUST create an intervention with an owner and response target. | System Test | threshold-to-intervention records, owner Animal-care supervisor, trigger pilot readiness | [System Specification](../../specifications/system-specification.md) |
+| FR-010 | Deviations MUST follow the governed Level 1, escalation, Level 2, recovery, and verification lifecycle. | Simulation | lifecycle scenario report, owner Safety and Compliance lead, trigger pilot readiness | [System Specification](../../specifications/system-specification.md) |
+| FR-011 | Missing or expired inspection, certification, or critical evidence MUST prevent presentation of an affected ride as available. | System Test | safer-state scenario report, owner Safety and Compliance lead, trigger pilot readiness | [System Specification](../../specifications/system-specification.md) |
+| FR-012 | Operational plans MUST evaluate role qualification, certification, working-time, rest, staffing ratio, task duration, unit availability, and equipment availability. | Simulation | plan constraint report, owner Workforce planner, trigger pilot readiness | [Workforce Specification](../../specifications/workforce-and-offline-operations.md) |
+| FR-013 | Every re-plan MUST create a new plan version with an explained difference from the prior version. | System Test | version and diff records, owner Workforce planner, trigger pilot readiness | [Workforce Specification](../../specifications/workforce-and-offline-operations.md) |
+| FR-014 | Offline execution records MUST synchronize idempotently after connectivity returns. | Integration Test | replay and duplicate-suppression report, owner Estate IT administrator, trigger pilot readiness | [Workforce Specification](../../specifications/workforce-and-offline-operations.md) |
+| FR-015 | Visitor-presence collection MUST be limited to the minimum pseudonymous entry, occupancy, exit, and duration evidence required for each unit. | Security Review | DPIA and data-flow inspection, owner Privacy and Safeguarding lead, trigger design approval | [Visitor Specification](../../specifications/visitor-commerce-and-engagement.md) |
+| FR-016 | Queue status MUST be published only as an aggregate derived from validated presence and capacity evidence. | System Test | aggregation and suppression report, owner Product owner, trigger pilot readiness | [Visitor Specification](../../specifications/visitor-commerce-and-engagement.md) |
+| FR-017 | Every unit MUST have effective-dated Operations Cost, Maintenance Cost, and CAPEX allocations. | Integration Test | effective-date and reconciliation report, owner Finance controller, trigger finance acceptance | [Unit Economics](../../specifications/operational-unit-and-economics.md) |
+| FR-018 | Unit Credits MUST equal validated visitor-minutes multiplied by the unit's effective Unit Credit weight for the calculation period. | Unit Test; Metric Validation | calculation examples and reconciliation report, owner Finance controller, trigger finance acceptance | [Unit Economics](../../specifications/operational-unit-and-economics.md) |
+| FR-019 | Package revenue MUST be allocated once in proportion to eligible Unit Credits within the governed allocation window. | Unit Test; Integration Test | duplicate and allocation report, owner Finance controller, trigger finance acceptance | [Unit Economics](../../specifications/operational-unit-and-economics.md) |
+| FR-020 | Every AI recommendation MUST record source evidence and freshness, applicable rule, model, provider, prompt and policy versions, confidence, uncertainty, material factors, alternatives, and rationale. | Inspection; System Test | recommendation completeness report, owner Product owner, trigger AI release gate | [AI Governance](../../specifications/ai-governance.md) |
+| FR-021 | A staff correction to an AI output MUST retain the correction reason without changing historical evidence. | System Test | correction audit report, owner Product owner, trigger AI release gate | [AI Governance](../../specifications/ai-governance.md) |
+| FR-022 | Every consequential action MUST require approval by an authorized human in the applicable professional domain. | Security Review; System Test | denied and approved action report, owner Safety and Compliance lead, trigger pilot readiness | [Identity and Policy](../../specifications/identity-access-and-policy.md) |
+| FR-047 | The platform MUST report unit- and zone-level utilization, demand, downtime, and data-quality evidence together to support staffing and investment decisions. | System Test; Metric Validation | zone/unit reporting completeness report, owner Estate IT administrator, trigger pilot readiness | [Operational Unit and Economics](../../specifications/operational-unit-and-economics.md) |
+| FR-048 | Telemetry-backed welfare visibility MUST include feeding or nutrition observation evidence, recorded as quantity, frequency, and consumption confidence, feeding the Level 1 intervention path in FR-009 and FR-010. | System Test | feeding/nutrition evidence coverage report, owner Animal-care supervisor, trigger pilot readiness | [Domain Model](../../specifications/domain-model.md) |
